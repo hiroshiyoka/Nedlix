@@ -1,4 +1,10 @@
-import { View, Text, TouchableWithoutFeedback, Dimensions } from "react-native";
+import {
+  View,
+  Text,
+  TouchableWithoutFeedback,
+  Dimensions,
+  Image,
+} from "react-native";
 import React from "react";
 import Carousel from "react-native-snap-carousel";
 import { useNavigation } from "@react-navigation/native";
@@ -33,6 +39,7 @@ const MovieCard = ({ item, handleClick }) => {
   return (
     <TouchableWithoutFeedback onPress={handleClick}>
       <Image
+        source={require("../assets/images/godfather.jpg")}
         style={{
           width: width * 0.6,
           height: height * 0.4,

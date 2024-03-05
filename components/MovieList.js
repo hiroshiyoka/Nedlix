@@ -41,6 +41,7 @@ export default function MovieList({ title, data }) {
             >
               <View className="space-y-1 mr-4">
                 <Image
+                  source={require("../assets/images/antman.jpg")}
                   className="rounded-3xl"
                   style={{ width: width * 0.3, height: height * 0.22 }}
                 />
