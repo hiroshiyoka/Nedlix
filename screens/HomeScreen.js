@@ -7,7 +7,7 @@ import {
   MagnifyingGlassIcon,
 } from "react-native-heroicons/outline";
 import { styles } from "../theme";
-import TrendingMovies from "../components/trendingMovies";
+import TrendingMovies from "../components/TrendingMovies";
 import MovieList from "../components/MovieList";
 
 export default function HomeScreen() {

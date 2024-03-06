@@ -11,7 +11,7 @@ import { useNavigation } from "@react-navigation/native";
 
 var { width, height } = Dimensions.get("window");
 
-export default function TrendingMovies() {
+export default function TrendingMovies({ data }) {
   const navigation = useNavigation();
   const handleClick = () => {
     navigation.navigate("Movie", item);
