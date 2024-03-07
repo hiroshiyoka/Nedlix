@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import React from "react";
 import { ChevronLeftIcon } from "react-native-heroicons/outline";
+import { HeartIcon } from "react-native-heroicons/solid";
 import { styles } from "../theme";
 
 var { width, height } = Dimensions.get("window");
@@ -33,6 +34,9 @@ export default function MovieScreen() {
             className="rounded-xl p-1"
           >
             <ChevronLeftIcon size="28" strokeWidth={2.5} color="white" />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <HeartIcon size="35" color="white" />
           </TouchableOpacity>
         </SafeAreaView>
       </View>
