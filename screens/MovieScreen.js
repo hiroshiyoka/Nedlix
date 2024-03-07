@@ -7,7 +7,7 @@ import {
   Dimensions,
   Platform,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { ChevronLeftIcon } from "react-native-heroicons/outline";
 import { HeartIcon } from "react-native-heroicons/solid";
 import { styles } from "../theme";
@@ -18,6 +18,7 @@ const ios = Platform.OS == "ios";
 const topMargin = ios ? "" : "mt-3";
 
 export default function MovieScreen() {
+  const [isFavorited, toggleFavourite] = useState(false);
   const navigation = useNavigation();
   return (
     <ScrollView
