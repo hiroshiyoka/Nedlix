@@ -10,7 +10,7 @@ import {
 import React, { useState } from "react";
 import { ChevronLeftIcon } from "react-native-heroicons/outline";
 import { HeartIcon } from "react-native-heroicons/solid";
-import { styles } from "../theme";
+import { styles, theme } from "../theme";
 import { useNavigation } from "@react-navigation/native";
 
 var { width, height } = Dimensions.get("window");
@@ -18,7 +18,7 @@ const ios = Platform.OS == "ios";
 const topMargin = ios ? "" : "mt-3";
 
 export default function MovieScreen() {
-  const [isFavorited, toggleFavourite] = useState(false);
+  const [isFavourite, toggleFavourite] = useState(false);
   const navigation = useNavigation();
   return (
     <ScrollView
@@ -40,7 +40,10 @@ export default function MovieScreen() {
             <ChevronLeftIcon size="28" strokeWidth={2.5} color="white" />
           </TouchableOpacity>
           <TouchableOpacity>
-            <HeartIcon size="35" color="white" />
+            <HeartIcon
+              size="35"
+              color={isFavourite ? theme.background : "white"}
+            />
           </TouchableOpacity>
         </SafeAreaView>
       </View>
