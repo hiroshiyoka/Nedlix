@@ -23,7 +23,7 @@ export default function TrendingMovies({ data }) {
       <Carousel
         data={data}
         renderItem={({ item }) => (
-          <MovieCard item={item} handleClick={() => handleClic(item)} />
+          <MovieCard item={item} handleClick={() => handleClick(item)} />
         )}
         firstItem={1}
         inactiveSlideOpacity={0.6}
