@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Dimensions,
   Platform,
+  Image,
 } from "react-native";
 import React, { useState } from "react";
 import { ChevronLeftIcon } from "react-native-heroicons/outline";
@@ -46,6 +47,12 @@ export default function MovieScreen() {
             />
           </TouchableOpacity>
         </SafeAreaView>
+        <View>
+          <Image
+            source={require("../assets/images/godfather.jpg")}
+            style={{ width, height: height * 0.55 }}
+          />
+        </View>
       </View>
     </ScrollView>
   );
