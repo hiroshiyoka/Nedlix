@@ -13,6 +13,7 @@ import { ChevronLeftIcon } from "react-native-heroicons/outline";
 import { HeartIcon } from "react-native-heroicons/solid";
 import { styles, theme } from "../theme";
 import { useNavigation } from "@react-navigation/native";
+import { LinearGradient } from "expo-linear-gradient";
 
 var { width, height } = Dimensions.get("window");
 const ios = Platform.OS == "ios";
@@ -51,6 +52,17 @@ export default function MovieScreen() {
           <Image
             source={require("../assets/images/godfather.jpg")}
             style={{ width, height: height * 0.55 }}
+          />
+          <LinearGradient
+            colors={[
+              "transparent",
+              "rgba(23, 23, 23, 0.8)",
+              "rgba(23, 23, 23, 1)",
+            ]}
+            style={{ width, height: height * 0.4 }}
+            start={{ x: 0.5, y: 0 }}
+            end={{ x: 0.5, y: 1 }}
+            className="absolute bottom-0"
           />
         </View>
       </View>
