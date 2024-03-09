@@ -73,6 +73,17 @@ export default function MovieScreen() {
         <Text className="text-white text-center text-3xl font-bold tracking-wide">
           {movieName}
         </Text>
+        <Text className="text-neutral-400 font-semibold text-base text-center">
+          Released - 1972 - 175 min
+        </Text>
+        <View className="flex-row justify-center mx-4 space-x-2">
+          <Text className="text-neutral-400 font-semibold text-base text-center">
+            Crime
+          </Text>
+          <Text className="text-neutral-400 font-semibold text-base text-center">
+            Drama
+          </Text>
+        </View>
       </View>
     </ScrollView>
   );
