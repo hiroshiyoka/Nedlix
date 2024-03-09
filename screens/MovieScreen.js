@@ -22,6 +22,8 @@ const topMargin = ios ? "" : "mt-3";
 export default function MovieScreen() {
   const [isFavourite, toggleFavourite] = useState(false);
   const navigation = useNavigation();
+  let movieName = "Godfather";
+
   return (
     <ScrollView
       contentContainerStyle={{ paddingBottom: 20 }}
@@ -65,6 +67,12 @@ export default function MovieScreen() {
             className="absolute bottom-0"
           />
         </View>
+      </View>
+
+      <View style={{ marginTop: -(height * 0.09) }} className="space-y-3">
+        <Text className="text-white text-center text-3xl font-bold tracking-wide">
+          {movieName}
+        </Text>
       </View>
     </ScrollView>
   );
