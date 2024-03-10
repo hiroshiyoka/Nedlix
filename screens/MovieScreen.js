@@ -102,7 +102,7 @@ export default function MovieScreen() {
         </Text>
       </View>
 
-      <Cast cast={cast} />
+      <Cast navigation={navigation} cast={cast} />
     </ScrollView>
   );
 }
