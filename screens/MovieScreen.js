@@ -23,6 +23,7 @@ const topMargin = ios ? "" : "mt-3";
 export default function MovieScreen() {
   const [isFavourite, toggleFavourite] = useState(false);
   const [cast, setCast] = useState([1, 2, 3, 4, 5]);
+  const [similarMovies, setSimilarMovies] = useState([1, 2, 3, 4, 5]);
   const navigation = useNavigation();
   let movieName = "Godfather";
 
@@ -103,6 +104,12 @@ export default function MovieScreen() {
       </View>
 
       <Cast navigation={navigation} cast={cast} />
+
+      <MovieList
+        title="Similar Movies"
+        hideSeeAll={true}
+        data={similarMovies}
+      />
     </ScrollView>
   );
 }
