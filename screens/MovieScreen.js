@@ -14,6 +14,7 @@ import { HeartIcon } from "react-native-heroicons/solid";
 import { styles, theme } from "../theme";
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
+import Cast from "../components/Cast";
 
 var { width, height } = Dimensions.get("window");
 const ios = Platform.OS == "ios";
@@ -21,6 +22,7 @@ const topMargin = ios ? "" : "mt-3";
 
 export default function MovieScreen() {
   const [isFavourite, toggleFavourite] = useState(false);
+  const [cast, setCast] = useState([1, 2, 3, 4, 5]);
   const navigation = useNavigation();
   let movieName = "Godfather";
 
@@ -99,6 +101,8 @@ export default function MovieScreen() {
           tear the Corleone family apart.
         </Text>
       </View>
+
+      <Cast cast={cast} />
     </ScrollView>
   );
 }
