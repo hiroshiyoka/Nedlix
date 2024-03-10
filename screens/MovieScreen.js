@@ -15,6 +15,7 @@ import { styles, theme } from "../theme";
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 import Cast from "../components/Cast";
+import MovieList from "../components/MovieList";
 
 var { width, height } = Dimensions.get("window");
 const ios = Platform.OS == "ios";
