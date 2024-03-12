@@ -62,6 +62,14 @@ export default function PersonScreen() {
             />
           </View>
         </View>
+        <View className="mt-6">
+          <Text className="text-3xl text-white font-bold text-center">
+            Al Pacino
+          </Text>
+          <Text className="text-base text-neutral-500 text-center">
+            New York City, United States
+          </Text>
+        </View>
       </View>
     </ScrollView>
   );
