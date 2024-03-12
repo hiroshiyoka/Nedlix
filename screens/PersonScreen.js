@@ -75,6 +75,18 @@ export default function PersonScreen() {
             <Text className="text-white font-semibold">Gender</Text>
             <Text className="text-neutral-300 text-sm">Male</Text>
           </View>
+          <View className="border-r-2 border-r-neutral-400 px-2 items-center">
+            <Text className="text-white font-semibold">Birthday</Text>
+            <Text className="text-neutral-300 text-sm">1940-04-25</Text>
+          </View>
+          <View className="border-r-2 border-r-neutral-400 px-2 items-center">
+            <Text className="text-white font-semibold">Known for</Text>
+            <Text className="text-neutral-300 text-sm">Acting</Text>
+          </View>
+          <View className="px-2 items-center">
+            <Text className="text-white font-semibold">Popularity</Text>
+            <Text className="text-neutral-300 text-sm">74</Text>
+          </View>
         </View>
       </View>
     </ScrollView>
