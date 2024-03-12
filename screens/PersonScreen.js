@@ -5,6 +5,7 @@ import {
   Platform,
   ScrollView,
   TouchableOpacity,
+  Image,
 } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -43,6 +44,15 @@ export default function PersonScreen() {
           <HeartIcon size="35" color={isFavorite ? "red" : "white"} />
         </TouchableOpacity>
       </SafeAreaView>
+
+      <View className="flex-row justify-center">
+        <View className="items-center rounded-full overflow-hidden h-72 w-72 border border-neutral-600">
+          <Image
+            source={require("../assets/images/michale.jpg")}
+            style={{ height: height * 0.43, width: width * 0.74 }}
+          />
+        </View>
+      </View>
     </ScrollView>
   );
 }
