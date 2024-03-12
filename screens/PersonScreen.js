@@ -70,6 +70,12 @@ export default function PersonScreen() {
             New York City, United States
           </Text>
         </View>
+        <View className="mx-3 mt-6 flex-row justify-between items-center bg-neutral-700 rounded-full">
+          <View className="border-r-2 border-r-neutral-400 px-2 items-center">
+            <Text className="text-white font-semibold">Gender</Text>
+            <Text className="text-neutral-300 text-sm">Male</Text>
+          </View>
+        </View>
       </View>
     </ScrollView>
   );
