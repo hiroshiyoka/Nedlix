@@ -45,20 +45,22 @@ export default function PersonScreen() {
         </TouchableOpacity>
       </SafeAreaView>
 
-      <View
-        className="flex-row justify-center"
-        style={{
-          shadowColor: "gray",
-          shadowRadius: 40,
-          shadowOffset: { width: 0, height: 5 },
-          shadowOpacity: 1,
-        }}
-      >
-        <View className="items-center rounded-full overflow-hidden h-72 w-72 border border-neutral-600">
-          <Image
-            source={require("../assets/images/michale.jpg")}
-            style={{ height: height * 0.43, width: width * 0.74 }}
-          />
+      <View>
+        <View
+          className="flex-row justify-center"
+          style={{
+            shadowColor: "gray",
+            shadowRadius: 40,
+            shadowOffset: { width: 0, height: 5 },
+            shadowOpacity: 1,
+          }}
+        >
+          <View className="items-center rounded-full overflow-hidden h-72 w-72 border border-neutral-600">
+            <Image
+              source={require("../assets/images/michale.jpg")}
+              style={{ height: height * 0.43, width: width * 0.74 }}
+            />
+          </View>
         </View>
       </View>
     </ScrollView>
