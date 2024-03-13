@@ -18,6 +18,7 @@ const { width, height } = Dimensions.get("window");
 export default function SearchScreen() {
   const navigation = useNavigation();
   const [results, setResults] = useState([1, 2, 3, 4]);
+  let movieName = "The Godfather";
 
   return (
     <SafeAreaView className="bg-neutral-800 flex-1">
@@ -50,14 +51,21 @@ export default function SearchScreen() {
                 key={index}
                 onPress={() => navigation.push("Movie", item)}
               >
-                <Image
-                  className="rounded-3xl"
-                  source={require("../assets/images/godfather.jpg")}
-                  style={{
-                    width: width * 0.44,
-                    height: height * 0.3,
-                  }}
-                />
+                <View className="space-y-2 mb-4">
+                  <Image
+                    className="rounded-3xl"
+                    source={require("../assets/images/godfather.jpg")}
+                    style={{
+                      width: width * 0.44,
+                      height: height * 0.3,
+                    }}
+                  />
+                  <Text className="text-neutral-300 ml-1">
+                    {movieName.length > 22
+                      ? movieName.slice(0, 22) + "..."
+                      : movieName}
+                  </Text>
+                </View>
               </TouchableWithoutFeedback>
             );
           })}
