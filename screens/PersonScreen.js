@@ -13,6 +13,7 @@ import { ChevronLeftIcon } from "react-native-heroicons/outline";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "../theme";
 import { HeartIcon } from "react-native-heroicons/solid";
+import MovieList from "../components/MovieList";
 
 var { width, height } = Dimensions.get("window");
 const ios = Platform.OS === "ios";
@@ -21,6 +22,7 @@ const verticalMargin = ios ? "" : "my-3";
 export default function PersonScreen() {
   const navigation = useNavigation();
   const [isFavorite, setIsFavorite] = useState(false);
+  const [personMovies, setPersonMovies] = useState([1, 2, 3, 4]);
 
   return (
     <ScrollView
@@ -102,6 +104,8 @@ export default function PersonScreen() {
             the Kennedy Center Honors in 2016.
           </Text>
         </View>
+
+        <MovieList title={"Movies"} hideSeeAll={true} data={personMovies} />
       </View>
     </ScrollView>
   );
