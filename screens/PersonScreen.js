@@ -88,6 +88,20 @@ export default function PersonScreen() {
             <Text className="text-neutral-300 text-sm">74</Text>
           </View>
         </View>
+        <View className="my-6 mx-4 space-y-2">
+          <Text className="text-white text-lg">Biography</Text>
+          <Text className="text-neutral-400 tracking-wide">
+            Alfredo James Pacino (born April 25, 1940) is an American actor.
+            Considered one of the greatest and most influential actors of the
+            20th century, Pacino has received numerous accolades: including an
+            Academy Award, two Tony Awards, and two Primetime Emmy Awards
+            achieving the Triple Crown of Acting. He also received four Golden
+            Globe Awards, a BAFTA, two Screen Actors Guild Awards and been
+            honored with the Cecil B. DeMille Award in 2001, the AFI Life
+            Achievement Award in 2007, the National Medal of Arts in 2011, and
+            the Kennedy Center Honors in 2016.
+          </Text>
+        </View>
       </View>
     </ScrollView>
   );
