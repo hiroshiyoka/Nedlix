@@ -4,8 +4,9 @@ import {
   Dimensions,
   TextInput,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { XMarkIcon } from "react-native-heroicons/outline";
 import { useNavigation } from "@react-navigation/native";
@@ -14,6 +15,7 @@ const { width, height } = Dimensions.get("window");
 
 export default function SearchScreen() {
   const navigation = useNavigation();
+  const [results, setResults] = useState([1, 2, 3, 4]);
 
   return (
     <SafeAreaView className="bg-neutral-800 flex-1">
@@ -30,6 +32,16 @@ export default function SearchScreen() {
           <XMarkIcon size="25" color="white" />
         </TouchableOpacity>
       </View>
+
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBottom: 15 }}
+        className="space-y-3"
+      >
+        <Text className="text-white font-semibold ml-1">
+          Results ({results.length})
+        </Text>
+      </ScrollView>
     </SafeAreaView>
   );
 }
