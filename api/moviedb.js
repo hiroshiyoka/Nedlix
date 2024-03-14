@@ -21,3 +21,7 @@ const apiCall = async (endpoint, params) => {
     return {};
   }
 };
+
+export const fetchTrendingMovies = () => {
+  return apiCall(trendingMoviesEndpoint);
+};
