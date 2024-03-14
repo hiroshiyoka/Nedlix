@@ -25,3 +25,7 @@ const apiCall = async (endpoint, params) => {
 export const fetchTrendingMovies = () => {
   return apiCall(trendingMoviesEndpoint);
 };
+
+export const fetchUpcomingMovies = () => {
+  return apiCall(upcomingMoviesEndpoint);
+};
