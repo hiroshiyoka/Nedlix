@@ -29,3 +29,7 @@ export const fetchTrendingMovies = () => {
 export const fetchUpcomingMovies = () => {
   return apiCall(upcomingMoviesEndpoint);
 };
+
+export const fetchTopRatedMovies = () => {
+  return apiCall(topRatedMoviesEndpoint);
+};
