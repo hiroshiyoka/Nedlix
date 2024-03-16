@@ -9,6 +9,9 @@ const topRatedMoviesEndpoint = `${apiBaseUrl}/movie/top_rated?api_key=${apiKey}`
 const movieDetailsEndpoint = (id) =>
   `${apiBaseUrl}/movie/${id}?api_key=${apiKey}`;
 
+const movieCreditsEndpoint = (id) =>
+  `${apiBaseUrl}/movie/${id}/credits?api_key=${apiKey}`;
+
 export const image500 = (path) =>
   path ? `https://image.tmdb.org/t/p/w500${path}` : null;
 export const image342 = (path) =>
