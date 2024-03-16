@@ -17,7 +17,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import Cast from "../components/Cast";
 import MovieList from "../components/MovieList";
 import Loading from "../components/Loading";
-import { fetchMovieDetails, image500 } from "../api/moviedb";
+import { fetchMovieCredits, fetchMovieDetails, image500 } from "../api/moviedb";
 
 var { width, height } = Dimensions.get("window");
 const ios = Platform.OS == "ios";
@@ -25,7 +25,7 @@ const topMargin = ios ? "" : "mt-3";
 
 export default function MovieScreen() {
   const [isFavourite, toggleFavourite] = useState(false);
-  const [cast, setCast] = useState([1, 2, 3, 4, 5]);
+  const [cast, setCast] = useState([]);
   const [similarMovies, setSimilarMovies] = useState([1, 2, 3, 4, 5]);
   const [loading, setLoading] = useState(false);
   const [movie, setMovie] = useState({});
@@ -35,12 +35,18 @@ export default function MovieScreen() {
   useEffect(() => {
     setLoading(true);
     getMovieDetails(item.id);
+    getMovieCredits(item.id);
   }, [item]);
 
   const getMovieDetails = async (id) => {
     const data = await fetchMovieDetails(id);
     if (data) setMovie(data);
     setLoading(false);
+  };
+
+  const getMovieCredits = async (id) => {
+    const data = await fetchMovieCredits(id);
+    if (data && data.cast) setCast(data.cast);
   };
 
   return (
