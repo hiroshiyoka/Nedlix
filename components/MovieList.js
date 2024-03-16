@@ -10,6 +10,7 @@ import {
 import React from "react";
 import { styles } from "../theme";
 import { useNavigation } from "@react-navigation/native";
+import { image185 } from "../api/moviedb";
 
 var { width, height } = Dimensions.get("window");
 
@@ -43,7 +44,7 @@ export default function MovieList({ title, data, hideSeeAll }) {
             >
               <View className="space-y-1 mr-4">
                 <Image
-                  source={require("../assets/images/antman.jpg")}
+                  source={{ uri: image185(item.poster_path) }}
                   className="rounded-3xl"
                   style={{ width: width * 0.3, height: height * 0.22 }}
                 />
