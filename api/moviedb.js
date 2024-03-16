@@ -49,3 +49,15 @@ export const fetchUpcomingMovies = () => {
 export const fetchTopRatedMovies = () => {
   return apiCall(topRatedMoviesEndpoint);
 };
+
+export const fetchMovieDetails = (id) => {
+  return apiCall(movieDetailsEndpoint(id));
+};
+
+export const fetchMovieCredits = (id) => {
+  return apiCall(movieCreditsEndpoint(id));
+};
+
+export const fetchSimilarMovies = (id) => {
+  return apiCall(similarMoviesEndpoint(id));
+};
