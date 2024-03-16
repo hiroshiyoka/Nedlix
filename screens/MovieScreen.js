@@ -106,12 +106,18 @@ export default function MovieScreen() {
         ) : null}
 
         <View className="flex-row justify-center mx-4 space-x-2">
-          <Text className="text-neutral-400 font-semibold text-base text-center">
-            Crime
-          </Text>
-          <Text className="text-neutral-400 font-semibold text-base text-center">
-            Drama
-          </Text>
+          {movie?.genre?.map((genre, index) => {
+            let showStrip = index + 1 != movie.genres.length;
+
+            return (
+              <Text
+                key={index}
+                className="text-neutral-400 font-semibold text-base text-center"
+              >
+                {genre?.name} {showStrip ? "-" : null}
+              </Text>
+            );
+          })}
         </View>
 
         <Text className="text-neutral-400 mx-4 tracking-wide">
