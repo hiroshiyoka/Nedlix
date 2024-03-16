@@ -11,7 +11,11 @@ import TrendingMovies from "../components/TrendingMovies";
 import MovieList from "../components/MovieList";
 import { useNavigation } from "@react-navigation/native";
 import Loading from "../components/Loading";
-import { fetchTrendingMovies } from "../api/moviedb";
+import {
+  fetchTopRatedMovies,
+  fetchTrendingMovies,
+  fetchUpcomingMovies,
+} from "../api/moviedb";
 
 export default function HomeScreen() {
   const [trending, setTrending] = useState([1, 2, 3]);
@@ -22,14 +26,24 @@ export default function HomeScreen() {
 
   useEffect(() => {
     getTrendingMovies();
+    getUpcomingMovies();
+    getTopRatedMovies();
   }, []);
 
   const getTrendingMovies = async () => {
     const data = await fetchTrendingMovies();
-    console.log("Got Trending Movies: ", data);
-
     if (data && data.results) setTrending(data.results);
     setLoading(false);
+  };
+
+  const getUpcomingMovies = async () => {
+    const data = await fetchUpcomingMovies();
+    if (data && data.results) setUpcoming(data.results);
+  };
+
+  const getTopRatedMovies = async () => {
+    const data = await fetchTopRatedMovies();
+    if (data && data.results) setTopRated(data.results);
   };
 
   return (
