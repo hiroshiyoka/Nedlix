@@ -12,6 +12,9 @@ const movieDetailsEndpoint = (id) =>
 const movieCreditsEndpoint = (id) =>
   `${apiBaseUrl}/movie/${id}/credits?api_key=${apiKey}`;
 
+const similarMoviesEndpoint = (id) =>
+  `${apiBaseUrl}/movie/${id}/similar?api_key=${apiKey}`;
+
 export const image500 = (path) =>
   path ? `https://image.tmdb.org/t/p/w500${path}` : null;
 export const image342 = (path) =>
