@@ -8,7 +8,7 @@ import {
   Platform,
   Image,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ChevronLeftIcon } from "react-native-heroicons/outline";
 import { HeartIcon } from "react-native-heroicons/solid";
 import { styles, theme } from "../theme";
@@ -17,6 +17,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import Cast from "../components/Cast";
 import MovieList from "../components/MovieList";
 import Loading from "../components/Loading";
+import { fetchMovieDetails, image500 } from "../api/moviedb";
 
 var { width, height } = Dimensions.get("window");
 const ios = Platform.OS == "ios";
@@ -27,8 +28,20 @@ export default function MovieScreen() {
   const [cast, setCast] = useState([1, 2, 3, 4, 5]);
   const [similarMovies, setSimilarMovies] = useState([1, 2, 3, 4, 5]);
   const [loading, setLoading] = useState(false);
+  const [movie, setMovie] = useState({});
   const navigation = useNavigation();
   let movieName = "Godfather";
+
+  useEffect(() => {
+    setLoading(true);
+    getMovieDetails(item.id);
+  }, [item]);
+
+  const getMovieDetails = async (id) => {
+    const data = await fetchMovieDetails(id);
+    if (data) setMovie(data);
+    setLoading(false);
+  };
 
   return (
     <ScrollView
@@ -62,7 +75,7 @@ export default function MovieScreen() {
         ) : (
           <View>
             <Image
-              source={require("../assets/images/godfather.jpg")}
+              source={{ uri: image500(movie?.poster_path) }}
               style={{ width, height: height * 0.55 }}
             />
             <LinearGradient
@@ -82,10 +95,11 @@ export default function MovieScreen() {
 
       <View style={{ marginTop: -(height * 0.09) }} className="space-y-3">
         <Text className="text-white text-center text-3xl font-bold tracking-wide">
-          {movieName}
+          {movie?.title}
         </Text>
         <Text className="text-neutral-400 font-semibold text-base text-center">
-          Released - 1972 - 175 min
+          {movie?.status} - {movie?.release_date?.split("-")[0]} -{" "}
+          {movie?.runtime} min
         </Text>
         <View className="flex-row justify-center mx-4 space-x-2">
           <Text className="text-neutral-400 font-semibold text-base text-center">
