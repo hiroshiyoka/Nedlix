@@ -97,10 +97,14 @@ export default function MovieScreen() {
         <Text className="text-white text-center text-3xl font-bold tracking-wide">
           {movie?.title}
         </Text>
-        <Text className="text-neutral-400 font-semibold text-base text-center">
-          {movie?.status} - {movie?.release_date?.split("-")[0]} -{" "}
-          {movie?.runtime} min
-        </Text>
+
+        {movie?.id ? (
+          <Text className="text-neutral-400 font-semibold text-base text-center">
+            {movie?.status} - {movie?.release_date?.split("-")[0]} -{" "}
+            {movie?.runtime} min
+          </Text>
+        ) : null}
+
         <View className="flex-row justify-center mx-4 space-x-2">
           <Text className="text-neutral-400 font-semibold text-base text-center">
             Crime
@@ -109,6 +113,7 @@ export default function MovieScreen() {
             Drama
           </Text>
         </View>
+
         <Text className="text-neutral-400 mx-4 tracking-wide">
           The Godfather "Don" Vito Corleone is the head of the Corleone mafia
           family in New York. He is at the event of his daughter's wedding.
