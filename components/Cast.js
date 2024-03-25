@@ -37,9 +37,9 @@ export default function Cast({ cast, navigation }) {
                     : person?.character}
                 </Text>
                 <Text className="text-neutral-400 text-xs mt-1">
-                  {personName.length > 10
-                    ? personName.slice(0, 10) + "..."
-                    : personName}
+                  {person?.original_name.length > 10
+                    ? person?.original_name.slice(0, 10) + "..."
+                    : person?.original_name}
                 </Text>
               </TouchableOpacity>
             );
