@@ -7,10 +7,10 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ChevronLeftIcon } from "react-native-heroicons/outline";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { styles } from "../theme";
 import { HeartIcon } from "react-native-heroicons/solid";
 import MovieList from "../components/MovieList";
@@ -21,10 +21,15 @@ const ios = Platform.OS === "ios";
 const verticalMargin = ios ? "" : "my-3";
 
 export default function PersonScreen() {
+  const { params: item } = useRoute();
   const navigation = useNavigation();
   const [isFavorite, setIsFavorite] = useState(false);
   const [personMovies, setPersonMovies] = useState([1, 2, 3, 4]);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+  }, [item]);
 
   return (
     <ScrollView
