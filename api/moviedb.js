@@ -72,3 +72,11 @@ export const fetchMovieCredits = (id) => {
 export const fetchSimilarMovies = (id) => {
   return apiCall(similarMoviesEndpoint(id));
 };
+
+export const fetchPersonDetails = (id) => {
+  return apiCall(personDetailsEndpoint(id));
+};
+
+export const fetchPersonMovies = (id) => {
+  return apiCall(personMoviesEndpoint(id));
+};
