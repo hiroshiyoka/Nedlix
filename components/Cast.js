@@ -32,9 +32,9 @@ export default function Cast({ cast, navigation }) {
                   />
                 </View>
                 <Text className="text-white text-xs mt-1">
-                  {characterName.length > 10
-                    ? characterName.slice(0, 10) + "..."
-                    : characterName}
+                  {person?.character.length > 10
+                    ? person?.character.slice(0, 10) + "..."
+                    : person?.character}
                 </Text>
                 <Text className="text-neutral-400 text-xs mt-1">
                   {personName.length > 10
