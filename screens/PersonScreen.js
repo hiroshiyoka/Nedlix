@@ -15,7 +15,11 @@ import { styles } from "../theme";
 import { HeartIcon } from "react-native-heroicons/solid";
 import MovieList from "../components/MovieList";
 import Loading from "../components/Loading";
-import { fetchPersonDetails } from "../api/moviedb";
+import {
+  fallbackPersonImage,
+  fetchPersonDetails,
+  image342,
+} from "../api/moviedb";
 
 var { width, height } = Dimensions.get("window");
 const ios = Platform.OS === "ios";
@@ -78,7 +82,9 @@ export default function PersonScreen() {
           >
             <View className="items-center rounded-full overflow-hidden h-72 w-72 border border-neutral-600">
               <Image
-                source={require("../assets/images/michale.jpg")}
+                source={{
+                  uri: image342(person?.profile_path) || fallbackPersonImage,
+                }}
                 style={{ height: height * 0.43, width: width * 0.74 }}
               />
             </View>
