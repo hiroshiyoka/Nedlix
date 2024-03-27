@@ -5,6 +5,7 @@ const apiBaseUrl = "https://api.themoviedb.org/3";
 const trendingMoviesEndpoint = `${apiBaseUrl}/trending/movie/day?api_key=${apiKey}`;
 const upcomingMoviesEndpoint = `${apiBaseUrl}/movie/upcoming?api_key=${apiKey}`;
 const topRatedMoviesEndpoint = `${apiBaseUrl}/movie/top_rated?api_key=${apiKey}`;
+const searchMoviesEndpoint = `${apiBaseUrl}/search/movie?api_key=${apiKey}`;
 
 const movieDetailsEndpoint = (id) =>
   `${apiBaseUrl}/movie/${id}?api_key=${apiKey}`;
@@ -14,9 +15,6 @@ const movieCreditsEndpoint = (id) =>
 
 const similarMoviesEndpoint = (id) =>
   `${apiBaseUrl}/movie/${id}/similar?api_key=${apiKey}`;
-
-const searchMoviesEndpoint = (id) =>
-  `${apiBaseUrl}/search/movie?api_key=${apiKey}`;
 
 const personDetailsEndpoint = (id) =>
   `${apiBaseUrl}/person/${id}?api_key=${apiKey}`;
