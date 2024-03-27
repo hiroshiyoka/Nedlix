@@ -13,6 +13,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { XMarkIcon } from "react-native-heroicons/outline";
 import { useNavigation } from "@react-navigation/native";
 import Loading from "../components/Loading";
+import { searchMovies } from "../api/moviedb";
 
 const { width, height } = Dimensions.get("window");
 
@@ -20,12 +21,30 @@ export default function SearchScreen() {
   const navigation = useNavigation();
   const [results, setResults] = useState([1, 2, 3, 4]);
   const [loading, setLoading] = useState(false);
+  const handleSearch = (value) => {
+    if (value && value.length > 2) {
+      setLoading(true);
+      searchMovies({
+        query: value,
+        include_adult: "false",
+        language: "en-US",
+        page: "1",
+      }).then((data) => {
+        setLoading(false);
+        if (data && data.results) setResults(data.results);
+      });
+    } else {
+      setLoading(false);
+      setResults([]);
+    }
+  };
   let movieName = "The Godfather";
 
   return (
     <SafeAreaView className="bg-neutral-800 flex-1">
       <View className="mx-4 mb-3 flex-row justify-between items-center border border-neutral-500 rounded-full">
         <TextInput
+          onChangeText={handleSearch}
           placeholder="Search Movie"
           placeholderTextColor={"lightgray"}
           className="pb-1 pl-6 flex-1 text-base font-semibold text-white tracking-wider"
