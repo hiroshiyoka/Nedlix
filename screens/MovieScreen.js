@@ -144,11 +144,13 @@ export default function MovieScreen() {
 
       {cast.length > 0 && <Cast navigation={navigation} cast={cast} />}
 
-      <MovieList
-        title="Similar Movies"
-        hideSeeAll={true}
-        data={similarMovies}
-      />
+      {similarMovies.length > 0 && (
+        <MovieList
+          title="Similar Movies"
+          hideSeeAll={true}
+          data={similarMovies}
+        />
+      )}
     </ScrollView>
   );
 }
