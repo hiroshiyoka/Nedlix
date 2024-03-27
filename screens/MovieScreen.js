@@ -142,7 +142,7 @@ export default function MovieScreen() {
         </Text>
       </View>
 
-      <Cast navigation={navigation} cast={cast} />
+      {cast.length > 0 && <Cast navigation={navigation} cast={cast} />}
 
       <MovieList
         title="Similar Movies"
