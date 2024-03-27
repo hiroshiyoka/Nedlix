@@ -83,3 +83,7 @@ export const fetchPersonDetails = (id) => {
 export const fetchPersonMovies = (id) => {
   return apiCall(personMoviesEndpoint(id));
 };
+
+export const searchMovies = (params) => {
+  return apiCall(searchMoviesEndpoint, params);
+};
