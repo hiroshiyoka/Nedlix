@@ -18,6 +18,7 @@ import Loading from "../components/Loading";
 import {
   fallbackPersonImage,
   fetchPersonDetails,
+  fetchPersonMovies,
   image342,
 } from "../api/moviedb";
 
@@ -36,12 +37,18 @@ export default function PersonScreen() {
   useEffect(() => {
     setLoading(true);
     getPersonDetails(item.id);
+    getPersonMovies(item.id);
   }, [item]);
 
   const getPersonDetails = async (id) => {
     const data = await fetchPersonDetails(id);
     if (data) setPerson(data);
     setLoading(false);
+  };
+
+  const getPersonMovies = async (id) => {
+    const data = await fetchPersonMovies(id);
+    if (data && data.cast) setPersonMovies(data.cast);
   };
 
   return (
@@ -130,7 +137,7 @@ export default function PersonScreen() {
             </Text>
           </View>
 
-          {/* <MovieList title={"Movies"} hideSeeAll={true} data={personMovies} /> */}
+          <MovieList title={"Movies"} hideSeeAll={true} data={personMovies} />
         </View>
       )}
     </ScrollView>
