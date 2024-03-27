@@ -100,19 +100,27 @@ export default function PersonScreen() {
           <View className="mx-3 mt-6 flex-row justify-between items-center bg-neutral-700 rounded-full">
             <View className="border-r-2 border-r-neutral-400 px-2 items-center">
               <Text className="text-white font-semibold">Gender</Text>
-              <Text className="text-neutral-300 text-sm">Male</Text>
+              <Text className="text-neutral-300 text-sm">
+                {person?.gender == 1 ? "Female" : "Male"}
+              </Text>
             </View>
             <View className="border-r-2 border-r-neutral-400 px-2 items-center">
               <Text className="text-white font-semibold">Birthday</Text>
-              <Text className="text-neutral-300 text-sm">1940-04-25</Text>
+              <Text className="text-neutral-300 text-sm">
+                {person?.birthday}
+              </Text>
             </View>
             <View className="border-r-2 border-r-neutral-400 px-2 items-center">
               <Text className="text-white font-semibold">Known for</Text>
-              <Text className="text-neutral-300 text-sm">Acting</Text>
+              <Text className="text-neutral-300 text-sm">
+                {person?.known_for_department}
+              </Text>
             </View>
             <View className="px-2 items-center">
               <Text className="text-white font-semibold">Popularity</Text>
-              <Text className="text-neutral-300 text-sm">74</Text>
+              <Text className="text-neutral-300 text-sm">
+                {person?.popularity?.toFixed(2)} %
+              </Text>
             </View>
           </View>
           <View className="my-6 mx-4 space-y-2">
