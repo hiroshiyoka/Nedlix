@@ -8,7 +8,7 @@ import {
   TouchableWithoutFeedback,
   Image,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { XMarkIcon } from "react-native-heroicons/outline";
 import { useNavigation } from "@react-navigation/native";
@@ -38,6 +38,8 @@ export default function SearchScreen() {
       setResults([]);
     }
   };
+  const handleTextDebounce = useCallback(debounce(handleSearch, 400), []);
+
   let movieName = "The Godfather";
 
   return (
