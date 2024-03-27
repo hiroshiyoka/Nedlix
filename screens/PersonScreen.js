@@ -15,6 +15,7 @@ import { styles } from "../theme";
 import { HeartIcon } from "react-native-heroicons/solid";
 import MovieList from "../components/MovieList";
 import Loading from "../components/Loading";
+import { fetchPersonDetails } from "../api/moviedb";
 
 var { width, height } = Dimensions.get("window");
 const ios = Platform.OS === "ios";
@@ -24,12 +25,20 @@ export default function PersonScreen() {
   const { params: item } = useRoute();
   const navigation = useNavigation();
   const [isFavorite, setIsFavorite] = useState(false);
-  const [personMovies, setPersonMovies] = useState([1, 2, 3, 4]);
+  const [personMovies, setPersonMovies] = useState([]);
+  const [person, setPerson] = useState({});
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setLoading(true);
+    getPersonDetails(item.id);
   }, [item]);
+
+  const getPersonDetails = async (id) => {
+    const data = await fetchPersonDetails(id);
+    if (data) setPerson(data);
+    setLoading(false);
+  };
 
   return (
     <ScrollView
