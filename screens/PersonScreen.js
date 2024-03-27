@@ -91,10 +91,10 @@ export default function PersonScreen() {
           </View>
           <View className="mt-6">
             <Text className="text-3xl text-white font-bold text-center">
-              Al Pacino
+              {person?.name}
             </Text>
             <Text className="text-base text-neutral-500 text-center">
-              New York City, United States
+              {person?.place_of_birth}
             </Text>
           </View>
           <View className="mx-3 mt-6 flex-row justify-between items-center bg-neutral-700 rounded-full">
