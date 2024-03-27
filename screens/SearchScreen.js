@@ -13,7 +13,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { XMarkIcon } from "react-native-heroicons/outline";
 import { useNavigation } from "@react-navigation/native";
 import Loading from "../components/Loading";
-import { searchMovies } from "../api/moviedb";
+import { fallbackMoviePoster, image185, searchMovies } from "../api/moviedb";
 
 const { width, height } = Dimensions.get("window");
 
@@ -80,16 +80,18 @@ export default function SearchScreen() {
                   <View className="space-y-2 mb-4">
                     <Image
                       className="rounded-3xl"
-                      source={require("../assets/images/godfather.jpg")}
+                      source={{
+                        uri: image185(item?.poster_path) || fallbackMoviePoster,
+                      }}
                       style={{
                         width: width * 0.44,
                         height: height * 0.3,
                       }}
                     />
                     <Text className="text-neutral-300 ml-1">
-                      {movieName.length > 22
-                        ? movieName.slice(0, 22) + "..."
-                        : movieName}
+                      {item?.title.length > 22
+                        ? item?.title.slice(0, 22) + "..."
+                        : item?.title}
                     </Text>
                   </View>
                 </TouchableWithoutFeedback>
